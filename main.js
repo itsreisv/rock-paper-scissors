@@ -1,34 +1,55 @@
-//make a rock paper scissors program
-// get user input for each option
-// get computer input for each option
-// compare if/else for winning scenarios
-// display results to user
+let playerScore = 0;
+let computerScore = 0;
+
+
+
+
+function game() {
+    for (let i = 0; i<=5; i++) {
+        
+        console.log(playRound());
+        console.log("Player: " + playerScore ,"Computer: " + computerScore)
+
+        }
+        if (playerScore > computerScore){
+            console.log("Game over, You Win!")}
+        
+            else{ 
+                console.log("Game over, You Lose!")
+
+            }
+
+
+        }
+    
+
+
+game();
 
 
 function playRound() {
     let computerSelection = getComputerInput();
     let playerSelection = prompt("Please enter Rock, Paper, or Scissors.").toLowerCase();
-  
+    
 
     if ((playerSelection == "rock" && computerSelection == "scissors") ||
         (playerSelection == "paper" && computerSelection == "rock") ||
-        (playerSelection == "scissors" && computerSelection == "paper"))
-        return"You win!" + " " + (playerSelection.toUpperCase() + " beats " + computerSelection.toUpperCase());
-
-    if (playerSelection == computerSelection){
-        return "It's a tie!";
+        (playerSelection == "scissors" && computerSelection == "paper")) {
+        ++playerScore
+       return "You Win!"
+        }
+        
+    else if (playerSelection == computerSelection){
+        return "It's a Tie!"
     }
 
     else {
-        return "You Lose!" + " " + (computerSelection.toUpperCase() + "beats " + playerSelection.toUpperCase());
-
+        ++computerScore
+        return "You Lose!"
+        
+    
     }
 }
-
-
-        
-console.log(playRound());
-
 
 
 function getComputerInput (){
