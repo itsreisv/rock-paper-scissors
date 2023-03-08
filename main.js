@@ -8,6 +8,8 @@ const output = document.querySelector("#output");
 player.textContent = `Player Score: ${playerScore}`;
 computer.textContent = `Computer Score: ${computerScore}`;
 output.textContent = "May the Best Person Win!"
+select.textContent = "Good Luck!"
+
 
 
 
@@ -40,18 +42,23 @@ function playRound(playerSelection) {
     }
 
     if (playerScore == 5){
-        output.textContent = "You won the game! Congrats";
+        output.textContent = "You won the game! Congrats! Refresh to rematch!";
         playerScore = 0;
         computerScore = 0;
         player.textContent = `Player Score: ${playerScore}`;
         computer.textContent = `Computer Score: ${computerScore}`;
+        disableBtn();
+        
+        
     }
     else if (computerScore == 5){
-        output.textContent = "You lost the game! Can't beat a computer?"
+        output.textContent = "You lost the game! Can't beat a computer? Refresh to rematch!"
         playerScore = 0;
         computerScore = 0;
         player.textContent = `Player Score: ${playerScore}`;
         computer.textContent = `Computer Score: ${computerScore}`;
+        
+        disableBtn();
     }
 }
         
@@ -70,3 +77,9 @@ buttons.forEach(button => {
     })
 
 })
+
+function disableBtn() {
+    document.getElementById('rock').disabled = true;
+    document.getElementById('paper').disabled = true;
+    document.getElementById('scissors').disabled = true;
+}
