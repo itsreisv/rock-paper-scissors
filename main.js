@@ -1,55 +1,61 @@
 let playerScore = 0;
 let computerScore = 0;
+const buttons = document.querySelectorAll('button');
+const player = document.querySelector("#player-score");
+const computer = document.querySelector('#computer-score');
+const select = document.querySelector('#select');
+const output = document.querySelector("#output");
+player.textContent = `Player Score: ${playerScore}`;
+computer.textContent = `Computer Score: ${computerScore}`;
+output.textContent = "May the Best Person Win!"
 
 
 
-
-function game() {
-    for (let i = 0; i<=5; i++) {
-        
-        console.log(playRound());
-        console.log("Player: " + playerScore ,"Computer: " + computerScore)
-
-        }
-        if (playerScore > computerScore){
-            console.log("Game over, You Win!")}
-        
-            else{ 
-                console.log("Game over, You Lose!")
-
-            }
-
-
-        }
-    
-
-
-game();
-
-
-function playRound() {
+function playRound(playerSelection) {
     let computerSelection = getComputerInput();
-    let playerSelection = prompt("Please enter Rock, Paper, or Scissors.").toLowerCase();
-    
+   
 
     if ((playerSelection == "rock" && computerSelection == "scissors") ||
         (playerSelection == "paper" && computerSelection == "rock") ||
         (playerSelection == "scissors" && computerSelection == "paper")) {
         ++playerScore
-       return "You Win!"
+        const player = document.querySelector("#player-score");
+       player.textContent = `Player Score: ${playerScore}`;
+       select.textContent = "You chose " + playerSelection + ". The Computer chose " + computerSelection + ". You Won!";
         }
         
     else if (playerSelection == computerSelection){
-        return "It's a Tie!"
+        select.textContent = "You chose " + playerSelection + ". The Computer chose " + computerSelection + ". You Tied!";
+       
+        
     }
 
     else {
         ++computerScore
-        return "You Lose!"
+        const computer = document.querySelector("#computer-score");
+        computer.textContent = `Computer Score: ${computerScore}`;
+        select.textContent = "You chose " + playerSelection + ". The Computer chose " + computerSelection + ". You Lost!";
         
     
     }
+
+    if (playerScore == 5){
+        output.textContent = "You won the game! Congrats";
+        playerScore = 0;
+        computerScore = 0;
+        player.textContent = `Player Score: ${playerScore}`;
+        computer.textContent = `Computer Score: ${computerScore}`;
+    }
+    else if (computerScore == 5){
+        output.textContent = "You lost the game! Can't beat a computer?"
+        playerScore = 0;
+        computerScore = 0;
+        player.textContent = `Player Score: ${playerScore}`;
+        computer.textContent = `Computer Score: ${computerScore}`;
+    }
 }
+        
+
 
 
 function getComputerInput (){
@@ -58,10 +64,9 @@ function getComputerInput (){
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
+buttons.forEach(button => {
+    button.addEventListener('click', function(){
+        playRound(button.id)
+    })
 
-
-
-
-
-
-
+})
