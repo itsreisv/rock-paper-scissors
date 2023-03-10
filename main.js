@@ -5,6 +5,7 @@ const player = document.querySelector("#player-score");
 const computer = document.querySelector('#computer-score');
 const select = document.querySelector('#select');
 const output = document.querySelector("#output");
+const img = document.querySelectorAll('img');
 player.textContent = `Player Score: ${playerScore}`;
 computer.textContent = `Computer Score: ${computerScore}`;
 output.textContent = "May the Best Person Win!"
@@ -48,8 +49,7 @@ function playRound(playerSelection) {
         player.textContent = `Player Score: ${playerScore}`;
         computer.textContent = `Computer Score: ${computerScore}`;
         disableBtn();
-        
-        
+    
     }
     else if (computerScore == 5){
         output.textContent = "You lost the game! Can't beat a computer? Refresh to rematch!"
@@ -57,8 +57,8 @@ function playRound(playerSelection) {
         computerScore = 0;
         player.textContent = `Player Score: ${playerScore}`;
         computer.textContent = `Computer Score: ${computerScore}`;
-        
         disableBtn();
+    
     }
 }
         
@@ -75,6 +75,20 @@ buttons.forEach(button => {
     button.addEventListener('click', function(){
         playRound(button.id)
     })
+
+img.forEach(img => {
+    img.addEventListener('mousedown', function(){
+        img.classList.add('hover');
+
+    })
+})
+
+img.forEach(img => {
+    img.addEventListener('mouseup' , function(){
+        img.classList.remove('hover');
+
+    })
+})
 
 })
 
