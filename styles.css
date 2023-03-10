@@ -62,7 +62,6 @@ img {
     align-items: center;
     width: 200px;
     height: 200px;
-    background: transparent;
     background-color: #020122;
 }
 .results {
@@ -85,8 +84,9 @@ img {
     width: 40%;
 }
 
-
-button:hover {
-    border:#f4442e;
+.hover{
+    
+    border: #f4442e 5px solid;
     border-radius: 20px;
+    box-shadow: 0 0 1rem #f4442e;
 }
