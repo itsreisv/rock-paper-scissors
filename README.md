@@ -1,0 +1,2 @@
+Hello, this is my first attempt at a project using HTML, CSS, and Javascript. It is elementary but I plan to come back in the future and make some
+new and interesting changes to it as my knowledge develops further. Thank you for checking it out!
